@@ -1,5 +1,6 @@
 package pp315;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
@@ -11,15 +12,13 @@ import pp315.entity.User;
 import java.util.List;
 
 @Component
+@RequiredArgsConstructor
 public class RestConnection {
+
     private final RestTemplate restTemplate;
+
     private String URL = "http://94.198.50.185:7081/api/users";
     private StringBuilder code = new StringBuilder();
-
-    @Autowired
-    public RestConnection(RestTemplate restTemplate) {
-        this.restTemplate = restTemplate;
-    }
 
     public StringBuilder getCode() {
         return code;
